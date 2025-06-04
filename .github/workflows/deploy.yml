@@ -21,21 +21,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "20" # Use the appropriate Node.js version for your project
+          node-version: "16" # Use the appropriate Node.js version for your project
 
       # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build the Next.js app
+      # Step 4: Build the Next.js app (with the static export automatically handled)
       - name: Build Next.js app
         run: npm run build
 
-      # Step 5: Export the app as static HTML
+      # Step 5: Export the Next.js app (Static export is automatically handled with next build)
       - name: Export Next.js app
-        run: npm run export
+        run: npm run build # This is the build command; next export isn't needed anymore
 
-      # Step 6: Upload the exported files to Hostinger (via FTP)
+      # Step 6: Upload the exported files to Hostinger via FTP
       - name: Upload to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
