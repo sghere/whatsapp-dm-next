@@ -30,11 +30,7 @@ jobs:
       # Step 4: Build the Next.js app (with the static export automatically handled)
       - name: Build Next.js app
         run: npm run build
-
-      # Step 5: Export the Next.js app (Static export is automatically handled with next build)
-      - name: Export Next.js app
-        run: npm run build # This is the build command; next export isn't needed anymore
-
+        
       # Step 6: Upload the exported files to Hostinger via FTP
       - name: Upload to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
